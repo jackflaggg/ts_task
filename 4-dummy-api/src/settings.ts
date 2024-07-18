@@ -1,7 +1,8 @@
 interface StatusesCode {
     BAD_REQUEST: number,
     OK: number,
-    NOT_FOUND: number
+    NOT_FOUND: number,
+    INTERNAL_SERVER_ERROR: number,
 }
 
 interface Hair {
@@ -70,13 +71,14 @@ export interface User
     crypto: Crypto,
     role:string
 }
-export enum SETTINGS {
-    URL = 'https://dummyjson.com/users',
-    PORT = 4001
-}
+export const SETTINGS = {
+    URL: 'https://dummyjson.com/users',
+    PORT: 4001
+} as const
 
 export const HTTP_STATUSES: StatusesCode  = {
     BAD_REQUEST: 400,
     OK: 200,
-    NOT_FOUND: 404
+    NOT_FOUND: 404,
+    INTERNAL_SERVER_ERROR: 500,
 }

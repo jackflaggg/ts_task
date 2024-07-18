@@ -1,8 +1,5 @@
-// @ts-ignore
 import {makeOrdinal} from './makeOrdinal';
-// @ts-ignore
 import {isFinite} from './isFinite';
-// @ts-ignore
 import {isSafeNumber} from './isSafeNumber';
 
 const TEN: number = 10;
@@ -45,19 +42,19 @@ function toWords(number: string, asOrdinal: boolean) : string{
 
     if (!isFinite(num)) {
         throw new TypeError(
-            'Not a finite number: ' + number + ' (' + typeof number + ')'
+            `Not a finite number:  + ${number} + ' (' + ${typeof number} + )`
         );
     }
     if (!isSafeNumber(num)) {
         throw new RangeError(
-            'Input is not a safe number, it’s either too large or too small.'
+            `Input is not a safe number, it’s either too large or too small.`
         );
     }
     words = generateWords(num);
     return asOrdinal ? makeOrdinal(words) : words;
 }
 
-function generateWords(number:number): string {
+function generateWords(number: number): string {
     let {remainder, word, words}: MyArguments = arguments[1];
 
     // We’re done
